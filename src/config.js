@@ -16,6 +16,7 @@ export const CONFIG = {
     "banner_picture": "https://www.superflexfitness.com/wp-content/uploads/2017/03/3D-banner-background.jpg",
   },
 
+  // These options just for your reference
   FILTER_OPTIONS : [
     {name: "Ethereum", value: 1},
     {name: "Polygon", value: 137},
