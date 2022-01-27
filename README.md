@@ -8,16 +8,18 @@ In the `src/config.js`, simply set your:
 
 That's it!
 
+&nbsp;
 ## Live Demo
 1. [Live on GitHub pages](https://covalenthq.github.io/nft-dashboard-template/)
 
-2. [Live on Replit] (https://replit.com/@Covalent-Templates/NFT-Collection-Dashboard-Template?v=1)
+2. [Live on Replit](https://replit.com/@Covalent-Templates/NFT-Collection-Dashboard-Template?v=1)
 
 The live demo displays:
 * A customizable NFT collection dashboard page with a summary, a floor price graph and a preview of the first 5 NFTs in the collection 
 * Ability to see where your specific collection ranks in the global view of all NFT collections on a specific blockchain
 * Ability to select a specific NFT in your collection and see its metadata
 
+&nbsp;
 ## Fork and Customize
 
 ### GitHub Pages
@@ -77,6 +79,7 @@ To get your customized NFT Dashboard working with Replit, do the following:
 
 4. Press `Run` and wait for the deployment to complete (it may be a few minutes). Your dashboard will then be live at the provided `...repl.co` URL. 
 
+&nbsp;
 ## Covalent API Endpoints
 The two primary Covalent API endpoints used in this code template include:
 
@@ -151,6 +154,6 @@ The response object looks similar to the following:
 
 While a default `COVALENT_API_KEY` is used for this code template, it is recommended you register and use your own free API key from: https://www.covalenthq.com/platform
 
+&nbsp;
 ## Feedback and Support
-
 If you have any questions, comments and feedback regarding this code template, please message us on [Discord](https://covalenthq.com/discord).
