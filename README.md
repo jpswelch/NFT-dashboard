@@ -1,4 +1,4 @@
-# Create Your NFT Collection Dashboard
+# Create Your Custom NFT Collection Dashboard in Minutes
 This code template is designed to get your own customized NFT Collection Dashboard up and running **in just minutes!**.
 
 In the `src/config.js`, simply set your:
@@ -8,7 +8,9 @@ In the `src/config.js`, simply set your:
 
 That's it!
 
-&nbsp;
+![BYAC Dashboard](./public/byac_dashboard.png)
+
+
 ## Live Demo
 1. [Live on GitHub pages](https://covalenthq.github.io/nft-dashboard-template/)
 
