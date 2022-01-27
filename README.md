@@ -1,7 +1,7 @@
 # Create Your NFT Collection Dashboard
 This code template is designed to get your own customized NFT Collection Dashboard up and running **in just minutes!**.
 
-In `src/config.js`, simply set your:
+In the `src/config.js`, simply set your:
 - NFT collection contract address
 - Blockchain `chain_id` where the contract address is deployed
 - Dashboard title and banner
@@ -9,19 +9,38 @@ In `src/config.js`, simply set your:
 That's it!
 
 ## Live Demo
-Visit https://covalenthq.github.io/nft-dashboard-template/ for a live demo. 
+1. [Live on GitHub pages](https://covalenthq.github.io/nft-dashboard-template/)
 
-* On GitHub, the code is open sourced and available at https://github.com/covalenthq/nft-dashboard-template/tree/main
-
-* On our [**Replit page**](https://replit.com/@Covalent-Templates/NFT-Collection-Dashboard-Template?v=1), just press `Run` to see this NFT Collection Dashboard in action.
+2. [Live on Replit] (https://replit.com/@Covalent-Templates/NFT-Collection-Dashboard-Template?v=1)
 
 The live demo displays:
-* An NFT collection dashboard page with a summary, a floor price graph and a preview of the first 5 NFTs in the collection 
+* A customizable NFT collection dashboard page with a summary, a floor price graph and a preview of the first 5 NFTs in the collection 
 * Ability to see where your specific collection ranks in the global view of all NFT collections on a specific blockchain
 * Ability to select a specific NFT in your collection and see its metadata
 
 ## Fork and Customize
-Fork and customize this NFT Collection template in just a few steps by updating the following code in `src/config.js`:
+
+### GitHub Pages
+On GitHub, the code is available at https://github.com/covalenthq/nft-dashboard-template/tree/main
+
+To get this working with GitHub pages, do the following:
+
+1. Click `Use this template`
+![Use GitHub template](./public/use_template.png)
+
+2. Name the repo and ensure you check off `Include all branches`. Click `Create repository from template`
+
+![Create NFT Dashboard Template](./public/create_nft_dashboard_template_settings.png)
+
+3. Under the `Settings` tab, select the `Pages` menu item and copy the URL where your site is published. 
+
+![GitHub Pages Setting](./public/github_pages_setting.png)
+
+4. Make sure you are on the `main` branch and open up `package.json`. Update the URL next to the `"homepage"` field using the URL where your site is being published. Commit your changes.
+
+![package.json Setting](./public/package_json_setting.png)
+
+5. Make sure you are on the `main` branch and update the code in `src/config.js` using the details for your NFT collection:
 
 ```
 TEMPLATE: {
@@ -41,21 +60,25 @@ TEMPLATE: {
     "banner_picture": "https://www.superflexfitness.com/wp-content/uploads/2017/03/3D-banner-background.jpg",
   },
 ```
+Commit your changes. Your custom NFT dashboard should be live at your published URL in just a couple minutes.
 
-## Deploy to GitHub pages
-This code template is designed to work seamlessly with GitHub pages. Simply do the following:
+![BYAC Dashboard](./public/byac_dashboard.png)
 
-1. Update the `homepage` field in `package.json` with the URL of your GitHub project page for this template or a custom domain. 
+### Replit
+On Replit, the code and hosted live demo site are integrated in one unified interface. 
 
-2. Deploy the site by running `npm run deploy`
+To get your customized NFT Dashboard working with Replit, do the following:
 
-3. On GitHub, ensure your project's settings use the `gh-pages` branch. 
+1. Go to the [Replit live demo]((https://replit.com/@Covalent-Templates/NFT-Collection-Dashboard-Template?v=1)) and click `Fork repl`
 
-See https://create-react-app.dev/docs/deployment/#github-pages for details and if you run into any issues. 
+2. Create a Replit account if you do not already have one. 
 
+3. Update the code in `src/config.js` using the details for your NFT collection (see above for code snippet).
+
+4. Press `Run` and wait for the deployment to complete (it may be a few minutes). Your dashboard will then be live at the provided `...repl.co` URL. 
 
 ## Covalent API Endpoints
-The two Covalent API endpoints used in this code template include:
+The two primary Covalent API endpoints used in this code template include:
 
 1. Detail view of a specific collection:
 
@@ -130,4 +153,4 @@ While a default `COVALENT_API_KEY` is used for this code template, it is recomme
 
 ## Feedback and Support
 
-If you have any questions, comments and feedback regarding this code template, please message us on Discord: https://covalenthq.com/discord
+If you have any questions, comments and feedback regarding this code template, please message us on [Discord](https://covalenthq.com/discord).
