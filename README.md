@@ -28,6 +28,7 @@ On GitHub, the code is available at https://github.com/covalenthq/nft-dashboard-
 To get this working with GitHub pages, do the following:
 
 1. Click `Use this template`
+
 ![Use GitHub template](./public/use_template.png)
 
 2. Name the repo and ensure you check off `Include all branches`. Click `Create repository from template`
@@ -71,7 +72,7 @@ On Replit, the code and hosted live demo site are integrated in one unified inte
 
 To get your customized NFT Dashboard working with Replit, do the following:
 
-1. Go to the [Replit live demo]((https://replit.com/@Covalent-Templates/NFT-Collection-Dashboard-Template?v=1)) and click `Fork repl`
+1. Go to the [Replit live demo](https://replit.com/@Covalent-Templates/NFT-Collection-Dashboard-Template?v=1) and click `Fork repl`
 
 2. Create a Replit account if you do not already have one. 
 
