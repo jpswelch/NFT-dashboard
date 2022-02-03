@@ -159,4 +159,14 @@ While a default `COVALENT_API_KEY` is used for this code template, it is recomme
 
 &nbsp;
 ## Feedback and Support
-If you have any questions, comments and feedback regarding this code template, please message us on [Discord](https://covalenthq.com/discord).
+If you have any questions, comments, issues and feedback regarding this code template, please message us on [Discord](https://covalenthq.com/discord).
+
+&nbsp;
+## About Covalent
+Covalent provides the industry-leading Unified API bringing visibility to billions of Web3 data points. 
+
+![Covalent Use Cases](./public/covalent_usecases.png)
+
+Developers use Covalent to build exciting multi-chain applications like crypto wallets, NFT galleries, and investor dashboard tools utilizing data from 26+ blockchains. Covalent is trusted by a community of 15,000+ developers and powers data for 500+ applications including 0x, Zerion, Rainbow Wallet, Rotki, Bitski and many others.
+
+[Website](https://www.covalenthq.com) | [Discord](https://covalenthq.com/discord) | [Telegram](https://t.me/CovalentHQ) | [Twitter](https://twitter.com/covalent_hq) | [YouTube](https://www.youtube.com/channel/UCGn-T9qPiXAx490Wr6WPbOw) | [WeChat](https://mp.weixin.qq.com/s?__biz=MzU0MzY5ODMzMg==&mid=2247483899&idx=1&sn=9c1d4df3acc04bc35c429b244307d3c7&chksm=fb063d08cc71b41e2da96b4747513acf2ab9182babe57c135e4a7d1fef9255eb3b310217835c&token=2144505038&lang=zh_CN#rd)
