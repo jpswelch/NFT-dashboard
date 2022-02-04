@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, HashRouter } from 'react-router-dom'
 import Global from './pages/GlobalView'
 import CollectionView from './pages/CollectionView'
 import NFTView from './pages/NFTView'
@@ -36,20 +36,22 @@ function App() {
   return (
     <div className="App" style={{backgroundColor:`${bg}`}}>
     <Router>
-      <Switch>
-        <Route path="/nft/:address/:id/:chainId" render={(props) => (
-          <NFTView {...props} light={light} vibrant={vibrant} dark={bg}/>
-        )} /> 
-        <Route path="/collection/:address/:id" render={(props) => (
-          <CollectionView {...props} light={light} vibrant={vibrant} dark={dark}/>
-        )} /> 
-        <Route path="/global" render={(props) => (
-          <Global {...props} light={light} vibrant={vibrant} dark={dark}/>
-        )} /> 
-        <Route path="/" render={(props) => (
-          <CollectionView {...props} light={light} vibrant={vibrant} dark={dark}/>
-        )} /> 
-      </Switch>
+      <HashRouter basename="/">
+        <Switch>
+          <Route path="/nft/:address/:id/:chainId" render={(props) => (
+            <NFTView {...props} light={light} vibrant={vibrant} dark={bg}/>
+          )} /> 
+          <Route path="/collection/:address/:id" render={(props) => (
+            <CollectionView {...props} light={light} vibrant={vibrant} dark={dark}/>
+          )} /> 
+          <Route path="/global" render={(props) => (
+            <Global {...props} light={light} vibrant={vibrant} dark={dark}/>
+          )} /> 
+          <Route path="/" render={(props) => (
+            <CollectionView {...props} light={light} vibrant={vibrant} dark={dark}/>
+          )} /> 
+        </Switch>
+      </HashRouter>
     </Router>
     <div className="logo">
       <img src={Logo}></img>
