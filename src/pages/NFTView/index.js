@@ -18,7 +18,7 @@ export default function NFTView({light, dark, vibrant}) {
   let { address, id, chainId } = useParams();
   const [nft, setNft] = useState({})
   const [activeLoader, setLoader] = useState(true)
-  const API_KEY = process.env['REACT_APP_COVALENT_API']
+  // const API_KEY = process.env['REACT_APP_COVALENT_API']
   const history = useHistory()
 
   axiosRetry(axios, {
@@ -38,7 +38,7 @@ export default function NFTView({light, dark, vibrant}) {
 
   // Request for nft metadata 
   const handleNft = async() => {
-    const resp = await axios.get(`https://api.covalenthq.com/v1/${chainId}/tokens/${address}/nft_metadata/${id}/?quote-currency=USD&format=JSON&key=ckey_docs`)
+    const resp = await axios.get(`https://api.covalenthq.com/v1/${chainId}/tokens/${address}/nft_metadata/${id}/?quote-currency=USD&format=JSON`, {auth: {username: 'ckey_docs'}})
     setNft(resp.data.data.items[0].nft_data !== null ? resp.data.data.items[0].nft_data[0] : {external_data : {image: ""}})
     setLoader(false)
   }

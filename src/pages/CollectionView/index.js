@@ -121,7 +121,7 @@ export default function CollectionView({light, vibrant, dark}) {
        // Request for nft metadata for display pictures
         for(let i of resp.data.data.items){
           try{
-            let resp2 = await axios.get(`https://api.covalenthq.com/v1/${blockchain_id}/tokens/${address_id}/nft_metadata/${i.token_id}/?quote-currency=USD&format=JSON&key=ckey_docs`)
+            let resp2 = await axios.get(`https://api.covalenthq.com/v1/${blockchain_id}/tokens/${address_id}/nft_metadata/${i.token_id}/?quote-currency=USD&format=JSON`, {auth: {username: 'ckey_docs'}})
             
             collection.push(resp2.data.data.items[0].nft_data != null ? resp2.data.data.items[0].nft_data[0] : {external_data : {image: ""}})
           }

@@ -20,7 +20,12 @@ export const CONFIG = {
   FILTER_OPTIONS : [
     {name: "Ethereum", value: 1},
     {name: "Polygon", value: 137},
-    {name: "Avalanche", value: 43114}
+    {name: "Avalanche", value: 43114},
+    {name: "Fantom", value: 250},
+    {name: "Moonbeam", value: 1284},
+    {name: "Moonriver", value: 1285},
+    {name: "Arbitrum", value: 42161},
+    {name: "Shiden", value: 336}  
     ],
   GRAPH_OPTIONS : [
     {name: "7 Days", value: 7},

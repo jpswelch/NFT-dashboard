@@ -52,7 +52,7 @@ const Table = ({data, onClick, color, load}) => {
   return (
     <table className="table">
       <tr className="title-row">
-
+  
         <th className="collection-name">
           <div className="tableHeader-collection"> 
             Collection 
@@ -76,7 +76,7 @@ const Table = ({data, onClick, color, load}) => {
 
         <th className="align-right">
           <div className="tableHeader">
-            Avg Price  
+            24hr Avg Price  
             <Icon icon={sortConfig.key === 'avg_volume_quote_24h' && sortConfig.direction === 'descending' ?  "chevron-down" : sortConfig.key === 'avg_volume_quote_24h' && sortConfig.direction === 'ascending' ?  "chevron-up" : "expand-all" }size={16} intent="primary" color="#FF4C8B" className='icon' onClick={()=>{requestSort('avg_volume_quote_24h')}}/>
           </div>
        </th>
