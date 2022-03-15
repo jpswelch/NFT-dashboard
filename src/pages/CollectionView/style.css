@@ -110,13 +110,15 @@ min-width: 100%;
 }
 
 .nft img{
+  width:200px;
+  height:200px;
   margin-bottom:8px;
   transition: all 0.3s ease;
 }
 
 .nft img:hover{
- width:225px;
- height:225px;
+ width:250px;
+ height:250px;
 }
 
 .collection-load {

@@ -47,14 +47,10 @@ export default function CollectionView({light, vibrant, dark}) {
     currency: 'USD',
   });
 
-  const API_KEY = process.env['REACT_APP_COVALENT_API']
-
   useEffect(()=>{
     handleCollection()
-    handleNft()
+    //handleNft()
   },[])
-
-
 
   // Handle Graph data
   const handleGraph = async(filter) => {
@@ -67,14 +63,14 @@ export default function CollectionView({light, vibrant, dark}) {
     // If filter is 0 (All time), apply different parameters
     let api_call = filter > 0 ? 
       // 2 dates (from - to)
-      `https://api.covalenthq.com/v1/${blockchain_id}/nft_market/collection/${address_id}/?from=${from}&to=${currentDay}&key=ckey_docs` 
+      `https://api.covalenthq.com/v1/${blockchain_id}/nft_market/collection/${address_id}/?from=${from}&to=${currentDay}` 
       : 
       // 1 date (current date - all data before it)
-      `https://api.covalenthq.com/v1/${blockchain_id}/nft_market/collection/${address_id}/?to=${currentDay}&key=ckey_docs`
+      `https://api.covalenthq.com/v1/${blockchain_id}/nft_market/collection/${address_id}/?to=${currentDay}`
 
     // Request for floor prices and add parameters to format for graph
       try{
-        const resp = await axios.get(api_call)
+        const resp = await axios.get(api_call, {auth: {username: 'ckey_docs'}})
 
         // Organize response data to insert into graph
         setGraph(resp.data.data.items.map(i => ({x:i.opening_date, y:i.floor_price_quote_7d})).reverse())
@@ -88,53 +84,28 @@ export default function CollectionView({light, vibrant, dark}) {
 
   }
 
-
   // Request for collection data
   const handleCollection = async() => {
+    let collection = []
     try{
-      const resp = await axios.get(`https://api.covalenthq.com/v1/${blockchain_id}/nft_market/collection/${address_id}/?&key=ckey_docs`)
+      const resp = await axios.get(`https://api.covalenthq.com/v1/${blockchain_id}/nft_market/collection/${address_id}/`,{auth: {username: 'ckey_docs'}})
       setData([...resp.data.data.items])
-      
       if(CONFIG.TEMPLATE.title !== "" && !address){
         CONFIG.TEMPLATE.title = `${resp.data.data.items[0].collection_name !== "" ? resp.data.data.items[0].collection_name : CONFIG.TEMPLATE.title } Dashboard`
       }
     }catch(error){
  
     }
-
+    
     if(CONFIG.TEMPLATE.timeseries_chart){
       // Call endpoint with 7 day parameters as default for graph
       handleGraph(7)
     }
 
+    setLoader(false)
 
   }
 
-  // Request for nft collection (first 5)
-  const handleNft = async() => {
-    let resp;
-    let collection = []
-    try{
-      resp = await axios.get(`https://api.covalenthq.com/v1/${blockchain_id}/tokens/${address_id}/nft_token_ids/?quote-currency=USD&format=JSON&page-size=5&key=ckey_docs`)
-
-
-       // Request for nft metadata for display pictures
-        for(let i of resp.data.data.items){
-          try{
-            let resp2 = await axios.get(`https://api.covalenthq.com/v1/${blockchain_id}/tokens/${address_id}/nft_metadata/${i.token_id}/?quote-currency=USD&format=JSON`, {auth: {username: 'ckey_docs'}})
-            
-            collection.push(resp2.data.data.items[0].nft_data != null ? resp2.data.data.items[0].nft_data[0] : {external_data : {image: ""}})
-          }
-          catch(err){
-          }
-        }
-        setNft([...collection])
-        setLoader(false)
-    }catch(err){
-    }
-
-  }
-  
   return (
     <>
         <>
@@ -165,7 +136,7 @@ export default function CollectionView({light, vibrant, dark}) {
                   <img className="collection-img" onError={(event) => {
                   event.target.classList.add("error-image")
                   event.target.classList.remove("collection-img")
-                  }} src={nft[0] ?.external_data?.image}></img>
+                  }} src={collectionData[0] ?.first_nft_image_256}></img>
                 }
               </div>
               <div className="details">
@@ -232,18 +203,22 @@ export default function CollectionView({light, vibrant, dark}) {
             </div>
             :
             <div className="collection-display">
-              {nft && nft.map((o,i)=>{
-                return (
-                    <div className="nft" key={i}>
-                      <img onError={(event) => {
-                        event.target.classList.add("error-image")
-                        event.target.classList.remove("collection-img")
-                        }} className="collection-img" key={i} src={o ?.external_data?.image} onClick={()=>{history.push(`/nft/${address_id}/${o.token_id}/${blockchain_id}`)}}>
-                      </img>
-                      {o ?.external_data?.name}
-                  </div>
-                )
-              })}
+                    <div className="nft" onClick={()=>{history.push(`/nft/${collectionData[0]?.collection_address}/${collectionData[0]?.first_nft_image_token_id}/${collectionData[0].chain_id}`)}}>
+                      <img src={collectionData[0] ?.first_nft_image_256} />
+                    </div>
+                    <div className="nft" onClick={()=>{history.push(`/nft/${collectionData[0]?.collection_address}/${collectionData[0]?.second_nft_image_token_id}/${collectionData[0].chain_id}`)}}>
+                      <img src={collectionData[0] ?.second_nft_image_256} />
+                    </div>
+                    <div className="nft" onClick={()=>{history.push(`/nft/${collectionData[0]?.collection_address}/${collectionData[0]?.third_nft_image_token_id}/${collectionData[0].chain_id}`)}}>
+                      <img src={collectionData[0] ?.third_nft_image_256} />
+                    </div>
+                    <div className="nft" onClick={()=>{history.push(`/nft/${collectionData[0]?.collection_address}/${collectionData[0]?.fourth_nft_image_token_id}/${collectionData[0].chain_id}`)}}>
+                      <img src={collectionData[0] ?.fourth_nft_image_256} />
+                    </div>
+                    <div className="nft" onClick={()=>{history.push(`/nft/${collectionData[0]?.collection_address}/${collectionData[0]?.fifth_nft_image_token_id}/${collectionData[0].chain_id}`)}}>
+                      <img src={collectionData[0] ?.fifth_nft_image_256} />
+                    </div>
+              
             </div>
             }
           </div>
@@ -251,5 +226,4 @@ export default function CollectionView({light, vibrant, dark}) {
           </>
     </>
   );
-
 }
