@@ -56,14 +56,14 @@ const options = {
 const graphData = {
   datasets: [
     { 
-      label: 'Floor Price Quote 7 Days USD ($) ',
+      label: 'Floor Price Last 7 Days (USD) ',
       yAxisID: 'A',
       data: quote,
       borderColor: 'rgb(255, 99, 132)',
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
     },
     {
-      label: 'Floor Price ETH 7 Days',
+      label: 'Floor Price Last 7 Days (Gas Token Price)',
       yAxisID: 'B',
       data: wei,
       borderColor: 'rgb(	0	,216,	213)',
