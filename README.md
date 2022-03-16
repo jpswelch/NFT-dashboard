@@ -24,6 +24,12 @@ The live demo displays:
 &nbsp;
 ## Fork and Customize
 
+### Setting up locally
+1. `git clone --branch main https://github.com/covalenthq/nft-dashboard-template.git`
+2. `cd nft-dashboard-template`
+3. `npm install`
+4. `npm start`
+
 ### GitHub Pages
 On GitHub, the code is available at https://github.com/covalenthq/nft-dashboard-template/tree/main
 
