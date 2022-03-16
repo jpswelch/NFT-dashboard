@@ -21,17 +21,20 @@ The live demo displays:
 * Ability to see where your specific collection ranks in the global view of all NFT collections on a specific blockchain
 * Ability to select a specific NFT in your collection and see its metadata
 
+While a default Covalent API Key is used in this code template, it is recommended you register and use your own API key from: https://www.covalenthq.com/platform
+
 &nbsp;
 ## Fork and Customize
 
-### Setting up locally
+### Local setup
 1. `git clone --branch main https://github.com/covalenthq/nft-dashboard-template.git`
 2. `cd nft-dashboard-template`
 3. `npm install`
 4. `npm start`
 
+
 ### GitHub Pages
-On GitHub, the code is available at https://github.com/covalenthq/nft-dashboard-template/tree/main
+On GitHub, the code is available at https://github.com/covalenthq/nft-dashboard-template
 
 To get this working with GitHub pages, do the following:
 
@@ -61,7 +64,7 @@ TEMPLATE: {
     // 2. Set your blockchain chain ID where your NFT collection contract address is deployed (see below for value options)
     "block_chain_id": "137",
 
-    // 3. Set the default title of your dashboard. If found, this template uses the NFT Collection name for the title.
+    // 3. Set the default title of your dashboard. If found, this template uses the NFT Collection name automatically for the title.
     "title": "My NFT Collection",
 
     // 4. (Optional) Boolean for displaying the floor price chart
@@ -71,7 +74,7 @@ TEMPLATE: {
     "banner_picture": "https://www.superflexfitness.com/wp-content/uploads/2017/03/3D-banner-background.jpg",
   },
 ```
-Commit your changes. Your custom NFT dashboard should be live at your published URL in just a couple minutes.
+Commit your changes. Your custom NFT dashboard should be live at your published URL in just a couple minutes. You can check the `Actions` tab in your GitHub repo to confirm that your dashboard has finished deploying. 
 
 ![BYAC Dashboard](./public/byac_dashboard.png)
 
@@ -103,23 +106,28 @@ This endpoint allows one to drill down into the details of a collection and the 
     "updated_at": "2021-12-19T05:25:26.926980Z",
     "items": [
       {
-        "chain_id": 1,
-        "collection_name": "MyCryptoHeroes:Land",
-        "collection_address": "0x617913dd43dbdf4236b85ec7bdf9adfd7e35b340",
-        "collection_ticker_symbol": "MCHL",
-        "volume_eth_24h": "0",
-        "volume_quote_24h": 0.0,
-        "average_volume_eth_24h": "0",
-        "average_volume_quote_24h": 0.0,
-        "eth_quote_rate": 3905.4487,
-        "opening_date": "2020-09-29",
-        "volume_eth_day": "500000000000000000",
-        "volume_quote_day": 176.95366,
-        "average_volume_eth_day": "500000000000000000",
-        "average_volume_quote_day": 176.95366,
-        "unique_token_ids_sold_count_day": 1,
-        "eth_quote_rate_day": 353.90732,
-        "quote_currency": "USD"
+        chain_id: 1,
+        collection_name: "BoredApeYachtClub",
+        collection_address: "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d",
+        collection_ticker_symbol: "BAYC",
+        opening_date: "2022-03-14",
+        volume_wei_day: "1217540000000000000000",
+        volume_quote_day: null,
+        average_volume_wei_day: "101461666666667000000",
+        average_volume_quote_day: null,
+        unique_token_ids_sold_count_day: 9,
+        floor_price_wei_7d: "88503461842105200000",
+        floor_price_quote_7d: null,
+        gas_quote_rate_day: null,
+        quote_currency: "USD",
+        first_nft_image_token_id: "0",
+        first_nft_image: "https://ipfs.io/ipfs/QmRRPWG96cmgTn2qSzjwr2qvfNEuhunv6FNeMFGa9bx6mQ",
+        first_nft_image_256: "https://image-proxy.svc.prod.covalenthq.com/256,fit,png/https://ipfs.io/ipfs/QmRRPWG96cmgTn2qSzjwr2qvfNEuhunv6FNeMFGa9bx6mQ",
+        first_nft_image_512: "https://image-proxy.svc.prod.covalenthq.com/512,fit,png/https://ipfs.io/ipfs/QmRRPWG96cmgTn2qSzjwr2qvfNEuhunv6FNeMFGa9bx6mQ",
+        first_nft_image_1024: "https://image-proxy.svc.prod.covalenthq.com/1024,fit,png/https://ipfs.io/ipfs/QmRRPWG96cmgTn2qSzjwr2qvfNEuhunv6FNeMFGa9bx6mQ",
+        second_nft_image_token_id: "1",
+        second_nft_image: "https://ipfs.io/ipfs/QmPbxeGcXhYQQNgsC6a36dDyYUcHgMLnGKnF8pVFmGsvqi",
+        ...
       },
 ```
 Data for the detail view is at a day granularity. 
@@ -160,8 +168,6 @@ The response object looks similar to the following:
         "opening_date": "2021-12-18"
       },
 ```
-
-While a default `COVALENT_API_KEY` is used for this code template, it is recommended you register and use your own free API key from: https://www.covalenthq.com/platform
 
 &nbsp;
 ## Feedback and Support
