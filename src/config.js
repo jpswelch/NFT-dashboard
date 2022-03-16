@@ -22,7 +22,7 @@ export const CONFIG = {
     {name: "Polygon", value: 137},
     {name: "Avalanche", value: 43114},
     {name: "Fantom", value: 250},
-    {name: "Moonbeam", value: 1284},
+    // {name: "Moonbeam", value: 1284},
     {name: "Moonriver", value: 1285},
     {name: "Arbitrum", value: 42161},
     {name: "Shiden", value: 336}  

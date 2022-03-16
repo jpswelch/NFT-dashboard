@@ -111,7 +111,7 @@ const Table = ({data, onClick, color, load}) => {
           <>
           {o.collection_address === CONFIG.TEMPLATE.collection_address ? 
            <tr key={i} ref={tableRef} className="active" style={{backgroundColor:color}} onClick={()=>{onClick(o.collection_address)}}>
-            <td className="thumbnail-image"> <img src={o.first_nft_image_256 ? o.first_nft_image_256 : "https://media-exp1.licdn.com/dms/image/C560BAQHZftuIJc5OMQ/company-logo_200_200/0/1616601285421?e=2147483647&v=beta&t=j6DJiJFHvVEFGFKU6rki6dFXYO4m3c43X0jKwe6H7_A"} style={{height:50,width:50}}/></td>
+            <td className="thumbnail-image"> <img src={o.first_nft_image_256 ? o.first_nft_image_256 : "https://media-exp1.licdn.com/dms/image/C560BAQHZftuIJc5OMQ/company-logo_200_200/0/1616601285421?e=2147483647&v=beta&t=j6DJiJFHvVEFGFKU6rki6dFXYO4m3c43X0jKwe6H7_A"} style={{height:50,width:50}} alt="No preview available"/></td>
             <td className="collection-name" style={{fontWeight:"600"}}>{o.collection_name !== "" ? o.collection_name : o.collection_address}</td>
             <td className="table-data-active">{o.market_cap_quote ? formatter.format(o.market_cap_quote).split('.')[0] : 0}</td>
             <td className="table-data-active">{o.volume_quote_24h ? formatter.format(o.volume_quote_24h).split('.')[0] : 0}</td>
@@ -121,7 +121,7 @@ const Table = ({data, onClick, color, load}) => {
           </tr>
            :
           <tr key={i} className="data-row" onClick={()=>{onClick(o.collection_address)}}>
-            <td className="thumbnail-image"> <img src={o.first_nft_image_256 ? o.first_nft_image_256 : "https://media-exp1.licdn.com/dms/image/C560BAQHZftuIJc5OMQ/company-logo_200_200/0/1616601285421?e=2147483647&v=beta&t=j6DJiJFHvVEFGFKU6rki6dFXYO4m3c43X0jKwe6H7_A"} style={{height:50,width:50}}/></td>
+            <td className="thumbnail-image"> <img src={o.first_nft_image_256 ? o.first_nft_image_256 : "https://media-exp1.licdn.com/dms/image/C560BAQHZftuIJc5OMQ/company-logo_200_200/0/1616601285421?e=2147483647&v=beta&t=j6DJiJFHvVEFGFKU6rki6dFXYO4m3c43X0jKwe6H7_A"} style={{height:50,width:50}} alt="No preview available"/></td>
             <td className="collection-name" style={{fontWeight:"600"}}>{o.collection_name !== "" ? o.collection_name : o.collection_address}</td>
             <td className="table-data">{o.market_cap_quote ? formatter.format(o.market_cap_quote).split('.')[0] : 0}</td>
             <td className="table-data">{o.volume_quote_24h ? formatter.format(o.volume_quote_24h).split('.')[0] : 0}</td>
