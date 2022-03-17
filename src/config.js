@@ -16,17 +16,18 @@ export const CONFIG = {
     "banner_picture": "https://www.superflexfitness.com/wp-content/uploads/2017/03/3D-banner-background.jpg",
   },
 
-  // These options just for your reference
+  // Supported networks - just for your reference
   FILTER_OPTIONS : [
     {name: "Ethereum", value: 1},
     {name: "Polygon", value: 137},
     {name: "Avalanche", value: 43114},
     {name: "Fantom", value: 250},
-    // {name: "Moonbeam", value: 1284},
+    {name: "Moonbeam", value: 1284},
     {name: "Moonriver", value: 1285},
     {name: "Arbitrum", value: 42161},
     {name: "Shiden", value: 336}  
     ],
+  // Supported timeframes - just for your reference
   GRAPH_OPTIONS : [
     {name: "7 Days", value: 7},
     {name: "1 Month", value: 30},
