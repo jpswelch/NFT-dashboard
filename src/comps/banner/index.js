@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { useHistory } from "react-router-dom";
 import './style.css'
-import bannerImg from "../../assets/Covalent-Background_5.jpg";
+import bannerImg from "../../assets/background.png";
 
 const Banner = ({head, subhead, img, color}) => {
   const history = useHistory()

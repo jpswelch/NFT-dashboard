@@ -70,7 +70,7 @@ export default function CollectionView({light, vibrant, dark}) {
 
     // Request for floor prices and add parameters to format for graph
       try{
-        const resp = await axios.get(api_call, {auth: {username: 'ckey_docs'}})
+        const resp = await axios.get(api_call, {auth: {username: 'ckey_6bf60a7bf22d4a309dbe74f3c5c'}})
 
         // Organize response data to insert into graph
         setGraph(resp.data.data.items.map(i => ({x:i.opening_date, y:i.floor_price_quote_7d})).reverse())
@@ -88,7 +88,7 @@ export default function CollectionView({light, vibrant, dark}) {
   const handleCollection = async() => {
     let collection = []
     try{
-      const resp = await axios.get(`https://api.covalenthq.com/v1/${blockchain_id}/nft_market/collection/${address_id}/`,{auth: {username: 'ckey_docs'}})
+      const resp = await axios.get(`https://api.covalenthq.com/v1/${blockchain_id}/nft_market/collection/${address_id}/`,{auth: {username: 'ckey_6bf60a7bf22d4a309dbe74f3c5c'}})
       setData([...resp.data.data.items])
       if(CONFIG.TEMPLATE.title !== "" && !address){
         CONFIG.TEMPLATE.title = `${resp.data.data.items[0].collection_name !== "" ? resp.data.data.items[0].collection_name : CONFIG.TEMPLATE.title } Dashboard`
