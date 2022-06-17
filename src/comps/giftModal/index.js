@@ -10,7 +10,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 
-export default function GiftModal({ CollectionName }) {
+export default function GiftModal({ CollectionName, ownerAddressArray }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>

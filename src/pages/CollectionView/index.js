@@ -118,18 +118,23 @@ export default function CollectionView({ light, vibrant, dark }) {
       // Call endpoint with 7 day parameters as default for graph
       handleGraph(7);
     }
-
-    const BASEURL = `https://eth-mainnet.alchemyapi.io/nft/v2/${process.env.REACT_APP_ALCHEMY_MAINNET}/getOwnersForCollection`;
+    let BASEURL;
+    if (blockchain_id == 1) {
+      BASEURL = `https://eth-mainnet.alchemyapi.io/nft/v2/${process.env.REACT_APP_ALCHEMY_MAINNET}/getOwnersForCollection`;
+    } else if (blockchain_id == 137) {
+      BASEURL = `https://polygon-mainnet.g.alchemy.com/nft/v2/${process.env.REACT_APP_ALCHEMY_POLYGON}/getOwnersForCollection`;
+    }
 
     const response = await axios.get(
       `${BASEURL}?contractAddress=${address_id}`
     );
+
     const ownerAddresses = response.data.ownerAddresses;
     setOwnerAddressArray(ownerAddresses);
     console.log(ownerAddresses);
     setLoader(false);
   };
-  console.log(collectionData);
+
   return (
     <>
       <>
@@ -262,7 +267,8 @@ export default function CollectionView({ light, vibrant, dark }) {
                       </td>
                       <td>
                         <GiftModal
-                          CollectionName={collectionData[0].collection_name}
+                          CollectionName={collectionData[0]?.collection_name}
+                          ownerAddressArray={ownerAddressArray}
                         />
                       </td>
                     </tr>
