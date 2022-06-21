@@ -14,6 +14,7 @@ import moment from "moment";
 import axiosRetry from "axios-retry";
 import { Icon, IconSize } from "@blueprintjs/core";
 import GiftModal from "../../comps/giftModal";
+const API_KEY = process.env["REACT_APP_COVALENT_API"];
 
 export default function CollectionView({ light, vibrant, dark }) {
   const [nft, setNft] = useState([]);
@@ -71,7 +72,7 @@ export default function CollectionView({ light, vibrant, dark }) {
     // Request for floor prices and add parameters to format for graph
     try {
       const resp = await axios.get(api_call, {
-        auth: { username: "ckey_6bf60a7bf22d4a309dbe74f3c5c" },
+        auth: { username: API_KEY },
       });
 
       // Organize response data to insert into graph
@@ -102,7 +103,7 @@ export default function CollectionView({ light, vibrant, dark }) {
     try {
       const resp = await axios.get(
         `https://api.covalenthq.com/v1/${blockchain_id}/nft_market/collection/${address_id}/`,
-        { auth: { username: "ckey_6bf60a7bf22d4a309dbe74f3c5c" } }
+        { auth: { username: API_KEY } }
       );
       setData([...resp.data.data.items]);
       if (CONFIG.TEMPLATE.title !== "" && !address) {
