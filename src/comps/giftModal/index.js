@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -10,8 +11,40 @@ import {
   Button,
 } from "@chakra-ui/react";
 
+import Form from "react-bootstrap/Form";
+import { useMoralis } from "react-moralis";
+
+import { mintGiftNFT } from "../../actions/nftActions";
+
 export default function GiftModal({ CollectionName, ownerAddressArray }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { account } = useMoralis();
+
+  // const [name, setName] = useState();
+  // const [description, setDescriptionData] = useState();
+  const [image, setImageData] = useState();
+
+  const pickRandomWinner = (async) => {
+    const rand = Math.floor(Math.random() * ownerAddressArray.length);
+    return ownerAddressArray[rand];
+  };
+
+  const handleMint = async (e) => {
+    e.preventDefault();
+    const WINNER = pickRandomWinner();
+    let success = await mintGiftNFT(
+      "hi",
+      "description",
+      image,
+      WINNER,
+      account
+    );
+    if (success) {
+      alert("Minting is complete!");
+    } else {
+      alert("Minting failed!");
+    }
+  };
   return (
     <>
       <Button onClick={onOpen} colorScheme="blue">
@@ -29,14 +62,23 @@ export default function GiftModal({ CollectionName, ownerAddressArray }) {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody color={"whiteAlpha.900"}>
-            NFT upload and send + share on twitter
+            <Form.Group controlId="formFile">
+              <Form.Control
+                type="file"
+                onChange={(e) => setImageData(e.target.files[0])}
+                className="mb-3"
+                required
+              />
+            </Form.Group>
           </ModalBody>
 
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button colorScheme="green">Submit</Button>
+            <Button colorScheme="green" onClick={handleMint}>
+              Mint
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

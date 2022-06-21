@@ -1,10 +1,8 @@
 async function main() {
-  const CommunityGiftNFTs = await hre.ethers.getContractFactory(
-    "CommunityGiftNFTs"
-  );
-  communityGiftNFTs = await CommunityGiftNFTs.deploy();
-  await communityGiftNFTs.deployed();
-  console.log("CommunityGiftNFTs deployed to:", communityGiftNFTs.address);
+  const Market = await hre.ethers.getContractFactory("CommunityGiftNFTs");
+  market = await Market.deploy();
+  await market.deployed();
+  console.log("CommunityGiftNFTs deployed to:", market.address);
 }
 
 main()
