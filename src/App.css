@@ -81,3 +81,10 @@
   object-position: center;
   content:url('./assets/alert.svg');
 }
+
+.conn button {
+  margin: 10px;
+  background-color: rgb(209, 86, 199);
+  padding: 10px;
+  border-radius: 28px;
+}

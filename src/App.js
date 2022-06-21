@@ -8,6 +8,7 @@ import * as Vibrant from 'node-vibrant'
 import img from './assets/banner.png'
 import React, {useEffect, useState} from 'react'
 import { CONFIG } from './config'
+import Conn from './Conn'
 
 function App() {
 
@@ -35,6 +36,9 @@ function App() {
 
   return (
     <div className="App" style={{backgroundColor:`${bg}`}}>
+    <div class="conn">
+      <Conn></Conn>
+    </div>
     <Router>
       <HashRouter basename="/">
         <Switch>
@@ -49,7 +53,7 @@ function App() {
           )} /> 
           <Route path="/" render={(props) => (
             <CollectionView {...props} light={light} vibrant={vibrant} dark={dark}/>
-          )} /> 
+          )} />
         </Switch>
       </HashRouter>
     </Router>
