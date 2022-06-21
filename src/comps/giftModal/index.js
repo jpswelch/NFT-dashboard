@@ -12,25 +12,38 @@ import {
 } from "@chakra-ui/react";
 
 import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
+import { useMoralis } from "react-moralis";
 
-// import { mintGiftNFT } from "../../actions/nftActions";
+import { mintGiftNFT } from "../../actions/nftActions";
 
 export default function GiftModal({ CollectionName, ownerAddressArray }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { account } = useMoralis();
 
-  const [name, setName] = useState();
-  const [description, setDescriptionData] = useState();
+  // const [name, setName] = useState();
+  // const [description, setDescriptionData] = useState();
   const [image, setImageData] = useState();
+
+  const pickRandomWinner = (async) => {
+    const rand = Math.floor(Math.random() * ownerAddressArray.length);
+    return ownerAddressArray[rand];
+  };
 
   const handleMint = async (e) => {
     e.preventDefault();
-    //   let success = await mintGiftNFT(name, description, image, recipient);
-    // if (success) {
-    //   alert("Minting is complete!");
-    // } else {
-    //   alert("Minting failed!");
-    // }
+    const WINNER = pickRandomWinner();
+    let success = await mintGiftNFT(
+      "hi",
+      "description",
+      image,
+      WINNER,
+      account
+    );
+    if (success) {
+      alert("Minting is complete!");
+    } else {
+      alert("Minting failed!");
+    }
   };
   return (
     <>

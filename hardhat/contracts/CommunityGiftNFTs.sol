@@ -8,10 +8,9 @@ contract CommunityGiftNFTs is ERC721URIStorage {
     Counters.Counter private _tokenIds;
     address contractAddr;
 
-    event CommunityGiftMinted(uint256);
+    event CommunityGiftMinted(uint256,address);
 
-    constructor(address _addr) ERC721("CGift", "CMG") {
-        contractAddr = _addr;
+    constructor() ERC721("CGift", "CMG") {
     }
 
     function mintCommunityGift(string memory _tokenURI, address recipient) public {
