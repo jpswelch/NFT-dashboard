@@ -48,8 +48,11 @@ export const mintGiftNFT = async (
     const nft = new ethers.Contract(ContractAddr, abi, signer);
     const tokenURI = gateway;
 
-    await nft.mintCommunityGift(tokenURI, recipient, { nonce: nonce + 1 });
-    return true;
+    const resp = await nft.mintCommunityGift(tokenURI, recipient, {
+      nonce: nonce + 1,
+    });
+
+    return resp.hash;
   } catch (e) {
     console.log(e);
     return false;

@@ -32,15 +32,17 @@ export default function GiftModal({ CollectionName, ownerAddressArray }) {
   const handleMint = async (e) => {
     e.preventDefault();
     const WINNER = pickRandomWinner();
-    let success = await mintGiftNFT(
+    let transactionHash = await mintGiftNFT(
       "hi",
       "description",
       image,
       WINNER,
       account
     );
-    if (success) {
-      alert("Minting is complete!");
+    if (transactionHash) {
+      alert(
+        `Minting is complete! Track your mint here https://mumbai.polygonscan.com/tx/${transactionHash}`
+      );
     } else {
       alert("Minting failed!");
     }
