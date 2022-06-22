@@ -14,6 +14,8 @@ import moment from "moment";
 import axiosRetry from "axios-retry";
 import { Icon, IconSize } from "@blueprintjs/core";
 import GiftModal from "../../comps/giftModal";
+import { Input, Stack, Center, Button, Box } from "@chakra-ui/react";
+
 const API_KEY = process.env["REACT_APP_COVALENT_API"];
 
 export default function CollectionView({ light, vibrant, dark }) {
@@ -27,10 +29,13 @@ export default function CollectionView({ light, vibrant, dark }) {
   const [ownerAddressArray, setOwnerAddressArray] = useState([]);
   const history = useHistory();
   const currentDay = moment().format("YYYY-MM-DD");
+  const [chain, setChain] = useState(137); //POLYGON default
+  const [collectionAddress, setValue] = React.useState("");
+  const handleChange = (event) => setValue(event.target.value);
   let { address, id } = useParams();
 
-  let blockchain_id = id ? id : CONFIG.TEMPLATE.block_chain_id;
-  let address_id = address ? address : CONFIG.TEMPLATE.collection_address;
+  let blockchain_id = id ? id : chain;
+  let address_id = address ? address : collectionAddress;
 
   axiosRetry(axios, {
     retries: 3,
@@ -48,11 +53,11 @@ export default function CollectionView({ light, vibrant, dark }) {
     currency: "USD",
   });
 
-  useEffect(() => {
-    handleCollection();
-    //handleNft()
-  }, []);
-
+  const handleView = async (e) => {
+    e.preventDefault();
+    console.log("VIEW");
+    await handleCollection();
+  };
   // Handle Graph data
   const handleGraph = async (filter) => {
     setGraphLoader(true);
@@ -186,6 +191,33 @@ export default function CollectionView({ light, vibrant, dark }) {
             </div>
           )}
           <div className="content">
+            <Stack p={"10px"}>
+              <Center>
+                <Input
+                  placeholder="Collection Address"
+                  w="50%"
+                  value={collectionAddress}
+                  onChange={handleChange}
+                />
+                <Button
+                  bg={"red"}
+                  color={"blackAlpha.900"}
+                  onClick={handleView}
+                  ml={"10px"}
+                >
+                  View
+                </Button>
+                <Box ml={"10px"}>
+                  <SelectDropdown
+                    options={CONFIG.FILTER_OPTIONS}
+                    onChange={(e) => {
+                      setChain(e.target.value);
+                    }}
+                    id={chain}
+                  />
+                </Box>
+              </Center>
+            </Stack>
             <div className="info">
               <div className="image">
                 {activeLoader ? (
@@ -278,32 +310,7 @@ export default function CollectionView({ light, vibrant, dark }) {
               </div>
             </div>
           </div>
-          {CONFIG.TEMPLATE.timeseries_chart && (
-            <div className="graph-cont">
-              {graphLoader && (
-                <div className="graph-loader">
-                  <img src={Loader}></img>
-                </div>
-              )}
-              {graphErr && (
-                <div className="graph-err">
-                  No data available between these dates
-                </div>
-              )}
-              <div className="graph-header">
-                <h2>Floor Price </h2>
-                <SelectDropdown
-                  options={CONFIG.GRAPH_OPTIONS}
-                  onChange={(e) => {
-                    handleGraph(e.target.value);
-                  }}
-                />
-              </div>
-              <div className="graph">
-                <TimeSeries quote={graphData} wei={weiData} />
-              </div>
-            </div>
-          )}
+
           <div className="bottom-section">
             <h1>NFT Preview (First 5)</h1>
             {activeLoader ? (
