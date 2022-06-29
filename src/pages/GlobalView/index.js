@@ -56,7 +56,7 @@ export default function LandingPage({ light, dark, vibrant }) {
             : null
         }
         head={CONFIG.TEMPLATE.title}
-        subhead={"Code Template"}
+        subhead={""}
         color={vibrant}
       />
       <div className="main">
@@ -86,7 +86,7 @@ export default function LandingPage({ light, dark, vibrant }) {
               id={CONFIG.TEMPLATE.block_chain_id}
             />
           </div>
-          {activeLoader ? (
+          {/* {activeLoader ? (
             <div className="load">
               <img src={Loader}></img>
             </div>
@@ -103,7 +103,7 @@ export default function LandingPage({ light, dark, vibrant }) {
               load={activeLoader}
               color={vibrant}
             />
-          )}
+          )} */}
         </div>
       </div>
     </>

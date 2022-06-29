@@ -7,13 +7,13 @@ export const CONFIG = {
     "block_chain_id": "137",
 
     // 3. Set the default title of your dashboard. If found, this template uses the NFT Collection name for the title.
-    "title": "My NFT Collection",
+    "title": "NFT Community Giveaway",
 
     // 4. (Optional) Display the floor price chart
-    "timeseries_chart": true,
+    "timeseries_chart": false,
 
     // 5. (Optional) Set your banner image
-    "banner_picture": "",
+    "banner_picture": "../src/assets/blackness.jpeg",
   },
 
   // Supported networks - just for your reference

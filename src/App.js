@@ -89,9 +89,6 @@ function App() {
           </Switch>
         </HashRouter>
       </Router>
-      <div className="logo">
-        <img src={Logo}></img>
-      </div>
     </div>
   );
 }

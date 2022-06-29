@@ -151,11 +151,11 @@ export default function CollectionView({ light, vibrant, dark }) {
               : null
           }
           head={CONFIG.TEMPLATE.title}
-          subhead={"Code Template"}
+          subhead={""}
           color={vibrant}
         />
         <div className="main">
-          {!address ? (
+          {/* {!address ? (
             <div
               className="global"
               style={{ color: light ? light : "#FF4C8B" }}
@@ -189,7 +189,7 @@ export default function CollectionView({ light, vibrant, dark }) {
               />
               Back
             </div>
-          )}
+          )} */}
           <div className="content">
             <Stack p={"10px"}>
               <Center>

@@ -3,7 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import SelectDropdown from "../../comps/selectDropdown";
 import Banner from "../../comps/banner";
 import NftDetails from "../../comps/nftDetails";
-import Loader from "../../assets/covalent-logo-loop_dark_v2.gif";
+import Loader from "../../assets/giveaway-logo.png";
 import Table from "../../comps/table";
 import Back from "../../assets/Back.svg";
 import axios from "axios";
@@ -63,7 +63,7 @@ export default function NFTView({ light, dark, vibrant }) {
                 : null
             }
             head={CONFIG.TEMPLATE.title}
-            subhead={"Code Template"}
+            subhead={""}
             color={vibrant}
           />
           <div className="main">
