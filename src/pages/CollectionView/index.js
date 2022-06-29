@@ -200,14 +200,14 @@ export default function CollectionView({ light, vibrant, dark }) {
                   onChange={handleChange}
                 />
                 <Button
-                  bg={"red"}
+                  bg={"#d156c7"}
                   color={"blackAlpha.900"}
                   onClick={handleView}
                   ml={"10px"}
                 >
                   View
                 </Button>
-                <Box ml={"10px"}>
+                <Box ml={"12px"}>
                   <SelectDropdown
                     options={CONFIG.FILTER_OPTIONS}
                     onChange={(e) => {
