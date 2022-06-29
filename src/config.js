@@ -13,7 +13,7 @@ export const CONFIG = {
     "timeseries_chart": false,
 
     // 5. (Optional) Set your banner image
-    "banner_picture": "../src/assets/blackness.jpeg",
+    "banner_picture": "https://storageapi.fleek.co/fa1d8b6c-525c-41f3-97a4-05f7b4cb3d17-bucket/blackness.jpeg",
   },
 
   // Supported networks - just for your reference
