@@ -3,7 +3,7 @@
 Giving NFT creators an easier way to give back to their collectors and supporters. We did this by giving an NFT creator a handy way to airdrop an NFT to a random owner in one of their collections.
 
 Demo:  
-https://nft-community-giveaway.on.fleek.co/  
+https://winter-scene-9226.on.fleek.co/#/  
 
 ## Requirements
 
