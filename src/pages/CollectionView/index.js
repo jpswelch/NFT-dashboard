@@ -76,6 +76,7 @@ export default function CollectionView({ light, vibrant, dark }) {
 
     // Request for floor prices and add parameters to format for graph
     try {
+      console.log("COVALENT API KEY", API_KEY);
       const resp = await axios.get(api_call, {
         auth: { username: API_KEY },
       });
