@@ -16,7 +16,7 @@ import { Icon, IconSize } from "@blueprintjs/core";
 import GiftModal from "../../comps/giftModal";
 import { Input, Stack, Center, Button, Box } from "@chakra-ui/react";
 
-const API_KEY = process.env["REACT_APP_COVALENT_API"];
+const API_KEY = process.env.REACT_APP_COVALENT_API;
 
 export default function CollectionView({ light, vibrant, dark }) {
   const [nft, setNft] = useState([]);
@@ -76,6 +76,7 @@ export default function CollectionView({ light, vibrant, dark }) {
 
     // Request for floor prices and add parameters to format for graph
     try {
+      console.log("COVALENT API KEY", API_KEY);
       const resp = await axios.get(api_call, {
         auth: { username: API_KEY },
       });
